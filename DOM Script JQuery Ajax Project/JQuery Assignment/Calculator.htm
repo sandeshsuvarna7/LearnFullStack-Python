@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var temp = "0";
+        var Calculate = "0";
+        var CurrencyAPI = "https://exchangeratesapi.io/";
+
+        $(document).ready(function () {
+            $("input").click(function () {
+                var text = $(this).attr('value');
+
+                if (isNaN(text)) {
+                    Calculate = parseFloat(Calculate);
+                    switch (text) {
+                        case "+":
+                            Calculate = Calculate + temp;
+                            break;
+                        case "-":
+                            Calculate = Calculate - temp;
+                            break;
+                        case "*":
+                            Calculate = Calculate * temp;
+                            break;
+                        case "/":
+                            if (temp == 0)
+                                Calculate = "undefined";
+                            else
+                                Calculate = Calculate / temp;
+                            break;
+                        case "cs":
+                            $("#txtdata").val('');
+                            break;
+                    }
+                    if (text != "cs") {
+                        $("#txtdata").val(Calculate);
+                        temp = "0";
+                    }
+                }
+                else {
+                    if (temp == 0) temp = parseFloat(text); else
+                        temp = parseFloat(temp + text);
+                    $("#txtdata").val(temp)
+                }
+                if (Text == "Toggle")
+                    $("#txtdata").val('');
+
+            });
+
+            $("#chkToggle").click(function () {
+                $.get(CurrencyAPI, "", function () {
+                    alert('Call sent');
+                })
+                    .done(function (response) {
+                        var resp = JSON.stringify(response.data).trim();
+                        alert(resp);
+                    }
+
+                    )
+            });
+        });
+    </script>
+    <style>
+        input {
+            width: 70px;
+            height: 70px;
+        }
+
+        #txtdata {
+            width: 280px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="txtdata" readonly /><br /><br />
+        <span><br />
+            <input type="Submit" id="7" value="7" /> <input type="Submit" id="8" value="8" /> <input type="Submit"
+                value="9" id="9" /> <input type="Submit" id="div" value="/" /><br />
+            <input type="Submit" id="6" value="6" /> <input type="Submit" id="8" value="5" /> <input type="Submit"
+                value="4" id="4" /> <input type="Submit" id="mul" value="*" /><br />
+            <input type="Submit" id="3" value="3" /> <input type="Submit" value="2" id="2" /> <input type="Submit"
+                value="1" id="1" /> <input type="Submit" id="min" value="-" /><br />
+            <input type="Submit" id="0" value="0" /> <input type="Submit" id="add" value="+" /> <input type="Submit"
+                id="clear" value="cs" />
+            <label class="switch">
+                <input type="checkbox" value="Toggle" id="chkToggle">
+                <span class="slider round"></span>
+            </label>
+        </span>
+    </div>
+</body>
+
+</html>

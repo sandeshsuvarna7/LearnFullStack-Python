@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>To Do List</title>
+    <style>
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+    </style>
+    <link rel="StyleSheet" href="FirstCSS.css" type="text/css">
+    <script>
+
+        var task = { taskName: "First Task", done: true }
+        todo = localStorage.getItem("to-do");
+        var todo = [task];
+        if (todo == "" || todo == null) {
+            todo = { "task": "First Task", status: "done" }
+        }
+        function addRowFunction() {
+
+            var addRow = document.getElementById("Mytable").insertRow(0);
+
+            addRow.setAttribute("ondblclick", "this.style.display='none'");
+
+            var addCell = addRow.insertCell(0);
+
+            addCell.innerHTML = document.getElementById("txtFreeForm").value;
+
+            console.log(todo[0].taskName);
+            console.log(localStorage.getItem("to-do"));
+            localStorage.setItem("to-do", JSON.stringify(todo));
+        }
+
+        function addCSStoTable(current) {
+            current.style.backgroundColor = (current.style.backgroundColor === 'red') ? ('white') : ('red');
+        }
+        function DeleteRow(current) {
+            if (current.style.backgroundColor == 'red')
+                current.style.display = none;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <br />
+        <h1>My ToDo List for the day</h1><br />
+        <input type="text" id="txtFreeForm"><input type="submit" value="Add down" onclick="addRowFunction();"> <br />
+        <br />
+    </div>
+    <div>
+        <table id="Mytable" ondblclick="DeleteRow(this);">
+            <tr onclick="addCSStoTable(this)">
+                <td>Hit the Gym</td>
+            </tr>
+            <tr onclick="addCSStoTable(this)">
+                <td>Pay Bills</td>
+            </tr>
+            <tr onclick="addCSStoTable(this)">
+                <td>Meet Sandesh</td>
+            </tr>
+            <tr onclick="addCSStoTable(this)">
+                <td>Buy Eggs</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

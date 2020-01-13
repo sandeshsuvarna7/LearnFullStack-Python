@@ -1,0 +1,40 @@
+To have multithreading in javaScript, use worker class.
+
+This is new features being used recently.
+
+syntax:
+
+if(typeof(worker) != "undefined")
+{if(typeof(w) == "undefined")
+{
+w = new Worker("NAME of your worker JS");
+}
+w.onmessage = function(event)
+{
+
+}
+
+
+
+use JavaScriptMinifier.com
+
+
+www.aztechz.com/to-do-api/get_list.php
+www.aztechz.com/to-do-api/create_list.php
+
+{	"user_id":"suhas",	"task":"This is suhas",	"status":"Checked"}
+
+
+www.aztechz.com/to-do-list/api/add_task.php{	"user_id":"sumit",	"task":"this is task5",	"status":"open"}
+www.aztechz.com/to-do-list/api/get_all_tasks.php{	"user_id":"suhas"}
+www.aztechz.com/to-do-list/api/update_status.php{	"id":1,	"status":"open"}
+www.aztechz.com/to-do-list/api/delete_task.php{	"id":1}
+
+
+
+API has 3 component
+
+endpoint uri
+
+
+request body

@@ -1,0 +1,8 @@
+<meta> tags contains searching informations, indexing purpose
+
+<Head> tag contains core libaries for performance reason.
+
+HTML 5
+<video>, <article>, <header>, <footer>
+
+sketch to code.net

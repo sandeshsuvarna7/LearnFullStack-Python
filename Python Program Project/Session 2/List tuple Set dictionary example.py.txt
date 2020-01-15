@@ -1,0 +1,30 @@
+#@title
+myList = ['Go', 'Learn', 'Python list']
+myList.append([1,2,3, 'Sandesh', 'AcadGild']) # ['Go', 'Learn', 'Python list', [1, 2, 3, 'Sandesh', 'AcadGild']]
+
+myList + ['Test without initialization']; 
+myList1 = myList + ['Test initialization']; #['Go', 'Learn', 'Python list', [1, 2, 3, 'Sandesh', 'AcadGild'], 'Test initialization']
+
+print(myList)
+
+print(myList1 * 3)
+
+print(myList + myList1)
+
+print(myList[3][3])
+
+
+t = ('Brinjal', 'Cucumber', 'Spinach') #tuple could be non changeable once assigned - immutable
+print(t)
+
+s = set()
+
+s = {1, 2, 5,  1, 2, "1", '1'}
+s.add(4)
+s.update([6, 3])
+print(s)
+
+dictemp = {'107': 'Sandesh', '102' : 'Aditya', '111': 'Swapnil', '109': 'Aamir', '105' : 'Salman'}
+
+for keys in sorted(dictemp): #Sort dictiorary by key
+  print(keys + " " + dictemp[keys])

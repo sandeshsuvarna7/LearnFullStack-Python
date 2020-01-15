@@ -1,0 +1,21 @@
+to install django:
+
+pip install django
+
+Check version of django:
+django-admin --version
+
+Start  a project:
+
+django-admin startproject "FirstHello"
+
+
+Run server:
+
+py manage.py runserver
+
+Default port is 8000
+
+run a server at port:
+
+py manage.py runserver 8100

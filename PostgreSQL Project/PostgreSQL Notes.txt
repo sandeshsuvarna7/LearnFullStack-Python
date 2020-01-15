@@ -1,1 +1,166 @@
 Password: Colgate@123
+
+
+https://www.postgresqltutorial.com/postgresql-sample-database/
+SELECT *
+	FROM public.actor
+	where first_name = 'Tim'
+	
+	Select count(*)
+	from public.address
+	
+	Select Distinct *
+	from public.address
+	
+	Select Distinct *
+		from public.city 
+		where city like 'Tan%'
+		
+		Select c.city
+		from address a
+		join city c
+		on a.city_id = c.city_id
+		Group By a.city_id
+		having count(a.city_id) > 1
+		
+		
+		Select city_id
+		from address
+		having count(city_id) > (Select count(city_id) from city)
+		/Answer 1
+		select c.city, c.city_id
+		from address a
+		left join city c
+		on a.city_id = c.city_id
+		group by c.city, c.city_id
+		having count(a.city_id) > 1
+		
+		
+		
+		
+		select *
+		from address
+		where city_id = 576
+		
+		
+	
+	Select First_name as "First name", last_name
+	from public.actor
+	order by First_name
+	
+SELECT *
+	FROM public.actor
+	where first_name = 'Tim'
+	
+	Select count(*)
+	from public.address
+	
+	Select Distinct *
+	from public.address
+	
+	Select Distinct *
+		from public.city 
+		where city like 'Tan%'
+		
+		Select c.city
+		from address a
+		join city c
+		on a.city_id = c.city_id
+		Group By a.city_id
+		having count(a.city_id) > 1
+		
+		
+		Select city_id
+		from address
+		having count(city_id) > (Select count(city_id) from city)
+		/Answer 1
+		select c.city, c.city_id
+		from address a
+		left join city c
+		on a.city_id = c.city_id
+		group by c.city, c.city_id
+		having count(a.city_id) > 1
+		
+				
+		Answer 2:
+		
+		select c.city, c.city_id
+		from address a
+		right join city c
+		on a.city_id = c.city_id
+		group by c.city, c.city_id
+		
+		Select city, city_id
+		from city
+		where city_id not IN(select city_id from address)
+		
+		Select *
+		from city
+		where city Like 'Lon%'
+		on
+		Select * 
+		from country
+		where city='Mexico'
+		
+		select *
+		from address
+		where city_id = 576
+		
+		Answer 3:
+		
+		select c.city, c.city_id, a.address
+		from address a
+		left join city c
+		on a.city_id = c.city_id		
+		where c.city = 'Mexico'
+		order by c.city, c.city_id, a.address
+	
+	Select First_name as "First name", last_name
+	from public.actor
+	order by First_name
+	
+	answer 4 :
+Select *
+from address
+where city_id IN 
+(select city_id from city where country_id in 
+ (select country_id from country where country = 'Mexico'))
+ 
+ select co.countryid, co.country, ct.city
+ from city ct
+ right join country co
+ on co.countryid = ct.countryid
+ group by cc.countryid
+ 
+ select c.country , count(a.address_id) , 
+		 CASE
+			  WHEN count (a.address_id ) > 10 THEN
+				 'BIG'
+			  WHEN count (a.address_id ) < 10 and count(a.address_id)>4 THEN
+			  	  'MEDIUM'
+			  ELSE
+				 'SMALL'
+			  END
+		    AS "Mass"
+
+ from country as c
+ join city as city on c.country_id = city.country_id 
+ join address as a on city.city_id = a.city_id 
+ group by  c.country
+ 
+ select * 
+ from payment
+ 
+ select customer_id , sum(amount)
+ from payment 
+ group by customer_id
+ where 
+ 
+ 
+ 
+ 
+ 
+	
+	
+	
+	

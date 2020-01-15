@@ -1,0 +1,14 @@
+#div1
+{
+    background-color: green;
+    text-align: center;
+}
+
+div input
+{ width: 40pc; height: 2pc;}
+
+div table
+{
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

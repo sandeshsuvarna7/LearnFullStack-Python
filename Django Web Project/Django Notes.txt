@@ -28,6 +28,10 @@ py manage.py startapp "MyFirstApp"
 
 Time, language code, database is set in settings.py
 
+
+pip install django-debug-toolbar >>>> to install debugging logs in 
+
+Debug, info are log entry message
 For foreign key, delete can be Protect, cascade and delete
 
 
